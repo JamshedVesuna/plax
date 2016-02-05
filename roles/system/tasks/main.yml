@@ -4,7 +4,7 @@
 #
 # Updating:
 # brew update; brew upgrade
-# pip install --upgrade pip setuptools
+# pip freeze --local | cut -d = -f 1 | xargs -n1 pip install -U
 
 - name: setup directories
   file: path={{ home }}/{{ item }} state=directory
