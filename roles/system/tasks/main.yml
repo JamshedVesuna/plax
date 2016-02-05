@@ -95,8 +95,8 @@
 - name: dotfile sourcing
   lineinfile: dest={{ home }}/{{ item.location }} line={{ item.line }} create=true
   with_items:
-    - { location: '.bashrc ',   line: 'export DOTFILES_PATH={{ home }}/scripts/dotfiles' }
-    - { location: '.bashrc ',   line: 'source \$DOTFILES_PATH/bash/.bashrc' }
+    - { location: '.bashrc',    line: 'export DOTFILES_PATH={{ home }}/scripts/dotfiles' }
+    - { location: '.bashrc',    line: 'source $DOTFILES_PATH/bash/.bashrc' }
     - { location: '.gvimrc',    line: 'source $DOTFILES_PATH/vim/.gvimrc' }
     - { location: '.tmux.conf', line: 'source $DOTFILES_PATH/tmux/.tmux.conf' }
     - { location: '.vimrc',     line: 'source $DOTFILES_PATH/vim/.vimrc' }
