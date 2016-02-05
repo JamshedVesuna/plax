@@ -105,3 +105,29 @@
 
 - name: dotfile symlink
   file: src={{ home }}/scripts/dotfiles/vim/.vim dest={{ home }}/.vim state=link
+
+- name: os x specific configurations
+  osx_defaults: domain={{ item.domain }} key={{ item.key }} type={{ item.type }} value={{ item.value }}
+  with_items:
+    # Default is 35 ms
+    - { key: 'InitialKeyRepeat',                   domain: 'NSGlobalDomain',        type: 'int',   value: '15' }
+    # Default is 0 ms
+    - { key: 'KeyRepeat',                          domain: 'NSGlobalDomain',        type: 'int',   value: '2' }
+    - { key: 'AppleKeyboardUIMode',                domain: 'NSGlobalDomain',        type: 'int',   value: '3' }
+    # Allow key repeat, remove character accents
+    - { key: 'ApplePressAndHoldEnabled',           domain: 'NSGlobalDomain',        type: 'bool',  value: 'false' }
+    # Only show active apps in Dock
+    - { key: 'static-only',                        domain: 'com.apple.dock',        type: 'bool',  value: 'true' }
+    # Autohide Dock
+    - { key: 'autohide',                           domain: 'com.apple.dock',        type: 'bool',  value: 'true' }
+    # Show all filename extensions in Finder
+    - { key: 'AppleShowAllExtensions',             domain: 'NSGlobalDomain',        type: 'bool',  value: 'true' }
+    # Remove the warning when changing a file extension
+    - { key: 'FXEnableExtensionChangeWarning',     domain: 'com.apple.finder',      type: 'bool',  value: 'false' }
+    # Show the path bar in Finder
+    - { key: 'ShowPathbar',                        domain: 'com.apple.finder',      type: 'bool',  value: 'true' }
+    # Ask for password immediately after sleep
+    - { key: 'askForPassword',                     domain: 'com.apple.screensaver', type: 'bool',  value: 'true' }
+    - { key: 'askForPasswordDelay',                domain: 'com.apple.screensaver', type: 'float', value: '0' }
+    # Expand the save dialog
+    - { key: 'NSNavPanelExpandedStateForSaveMode', domain: 'NSGlobalDomain',        type: 'bool',  value: 'true' }
