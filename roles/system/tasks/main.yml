@@ -95,13 +95,13 @@
 - name: dotfile sourcing
   lineinfile: dest={{ home }}/{{ item.location }} line={{ item.line }} create=true
   with_items:
-    - { location: '.bashrc ',      line: 'export DOTFILES_PATH={{ home }}/scripts/dotfiles' }
-    - { location: '.bashrc ',      line: 'source \$DOTFILES_PATH/bash/.bashrc' }
-    - { location: '.gvimrc',       line: 'source $DOTFILES_PATH/vim/.gvimrc' }
-    - { location: '.tmux.conf',    line: 'source $DOTFILES_PATH/tmux/.tmux.conf' }
-    - { location: '.vimrc',        line: 'source $DOTFILES_PATH/vim/.vimrc' }
-    - { location: '.gitconfig',    line: '[include]' }
-    - { location: '.gitconfig',    line: '  path = ~/scripts/dotfiles/git/.gitconfig' }
+    - { location: '.bashrc ',   line: 'export DOTFILES_PATH={{ home }}/scripts/dotfiles' }
+    - { location: '.bashrc ',   line: 'source \$DOTFILES_PATH/bash/.bashrc' }
+    - { location: '.gvimrc',    line: 'source $DOTFILES_PATH/vim/.gvimrc' }
+    - { location: '.tmux.conf', line: 'source $DOTFILES_PATH/tmux/.tmux.conf' }
+    - { location: '.vimrc',     line: 'source $DOTFILES_PATH/vim/.vimrc' }
+    - { location: '.gitconfig', line: '[include]' }
+    - { location: '.gitconfig', line: '  path = ~/scripts/dotfiles/git/.gitconfig' }
 
 - name: dotfile symlink
   file: src={{ home }}/scripts/dotfiles/vim/.vim dest={{ home }}/.vim state=link
