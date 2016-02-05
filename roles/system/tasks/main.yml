@@ -59,6 +59,7 @@
     # Misc tools
     - awscli
     - brew-cask
+    - cmake
     - ctags
 
 - name: homebrew cask install
@@ -69,7 +70,7 @@
     - dropbox
     - google-chrome
     - keepassx
-    #- seil
+    - seil
     - slack
     - spectacle
     - spotify
@@ -96,7 +97,6 @@
   with_items:
     - { location: '.bashrc ',      line: 'export DOTFILES_PATH={{ home }}/scripts/dotfiles' }
     - { location: '.bashrc ',      line: 'source \$DOTFILES_PATH/bash/.bashrc' }
-    - { location: '.zshrc ',       line: "alias plax='cd ~/scripts/plax; ansible-playbook -i inventory playbook.yml; cd -'" }
     - { location: '.gvimrc',       line: 'source $DOTFILES_PATH/vim/.gvimrc' }
     - { location: '.tmux.conf',    line: 'source $DOTFILES_PATH/tmux/.tmux.conf' }
     - { location: '.vimrc',        line: 'source $DOTFILES_PATH/vim/.vimrc' }
