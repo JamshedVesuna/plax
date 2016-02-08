@@ -58,7 +58,7 @@
     - the_silver_searcher
     # Misc tools
     - awscli
-    - brew-cask
+    - cask
     - cmake
     - ctags
 
@@ -97,6 +97,8 @@
   with_items:
     - { location: '.bashrc',    line: 'export DOTFILES_PATH={{ home }}/scripts/dotfiles' }
     - { location: '.bashrc',    line: 'source $DOTFILES_PATH/bash/.bashrc' }
+    - { location: '.zshrc',     line: 'export DOTFILES_PATH={{ home }}/scripts/dotfiles' }
+    - { location: '.zshrc',     line: 'source $DOTFILES_PATH/zsh/.zshrc' }
     - { location: '.gvimrc',    line: 'source $DOTFILES_PATH/vim/.gvimrc' }
     - { location: '.tmux.conf', line: 'source $DOTFILES_PATH/tmux/.tmux.conf' }
     - { location: '.vimrc',     line: 'source $DOTFILES_PATH/vim/.vimrc' }
@@ -127,7 +129,7 @@
     # Show the path bar in Finder
     - { key: 'ShowPathbar',                        domain: 'com.apple.finder',      type: 'bool',  value: 'true' }
     # Ask for password immediately after sleep
-    - { key: 'askForPassword',                     domain: 'com.apple.screensaver', type: 'bool',  value: 'true' }
+    - { key: 'askForPassword',                     domain: 'com.apple.screensaver', type: 'int',  value: '1' }
     - { key: 'askForPasswordDelay',                domain: 'com.apple.screensaver', type: 'float', value: '0' }
     # Expand the save dialog
     - { key: 'NSNavPanelExpandedStateForSaveMode', domain: 'NSGlobalDomain',        type: 'bool',  value: 'true' }
