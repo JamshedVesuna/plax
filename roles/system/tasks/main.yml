@@ -129,7 +129,7 @@
     # Show the path bar in Finder
     - { key: 'ShowPathbar',                        domain: 'com.apple.finder',      type: 'bool',  value: 'true' }
     # Ask for password immediately after sleep
-    - { key: 'askForPassword',                     domain: 'com.apple.screensaver', type: 'int',  value: '1' }
+    - { key: 'askForPassword',                     domain: 'com.apple.screensaver', type: 'int',   value: '1' }
     - { key: 'askForPasswordDelay',                domain: 'com.apple.screensaver', type: 'float', value: '0' }
     # Expand the save dialog
     - { key: 'NSNavPanelExpandedStateForSaveMode', domain: 'NSGlobalDomain',        type: 'bool',  value: 'true' }
