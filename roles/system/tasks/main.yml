@@ -38,6 +38,7 @@
     - go
     - markdown
     - python
+    - python3
     # Networking
     - curl
     - iperf
@@ -82,6 +83,7 @@
   with_items:
     - cronos
     - dropbox
+    - flake8
     - grip
     - ipdb
     - ipython
