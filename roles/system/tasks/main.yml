@@ -125,6 +125,10 @@
     - { key: 'static-only',                        domain: 'com.apple.dock',        type: 'bool',  value: 'true' }
     # Autohide Dock
     - { key: 'autohide',                           domain: 'com.apple.dock',        type: 'bool',  value: 'true' }
+    # Don't show the Dashboard as a space
+    - { key: 'dashboard-in-overlay',               domain: 'com.apple.dock',        type: 'bool',  value: 'true' }
+    # Don't automatically rearrange spaces base on MRU
+    - { key: 'mru-spaces',                         domain: 'com.apple.dock',        type: 'bool',  value: 'false' }
     # Show all filename extensions in Finder
     - { key: 'AppleShowAllExtensions',             domain: 'NSGlobalDomain',        type: 'bool',  value: 'true' }
     # Remove the warning when changing a file extension
