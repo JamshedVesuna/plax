@@ -33,6 +33,7 @@
   with_items:
     # Text Editors
     - macvim
+    - neovim/neovim/neovim
     - vim
     # Languages
     - go
