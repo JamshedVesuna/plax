@@ -90,6 +90,8 @@
     - ipython
     - joblib
     - line_profiler
+    - msgpack-python
+    - neovim
     - numpy
     - pep8
     - virtualenv
