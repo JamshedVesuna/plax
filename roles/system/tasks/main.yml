@@ -38,6 +38,7 @@
     # Languages
     - go
     - markdown
+    - pandoc
     - python
     - python3
     # Networking
@@ -61,6 +62,7 @@
     - cask
     - cmake
     - ctags
+    - gpg
 
 - name: homebrew cask install
   homebrew_cask:
@@ -94,6 +96,7 @@
     - neovim
     - numpy
     - pep8
+    - pytest
     - virtualenv
 
 - name: dotfile sourcing
