@@ -48,6 +48,7 @@
     - openssl
     - wget
     # Version Control
+    - duplicity
     - git
     - rdiff-backup
     # Cli
@@ -72,6 +73,7 @@
     - dropbox
     - flux
     - google-chrome
+    - google-cloud-sdk
     - keepassx
     - seil
     - slack
