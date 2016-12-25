@@ -83,7 +83,7 @@
 
 - name: pip install
   pip: name={{ item }} state=latest
-  become_method: sudo
+  become_user: sudo
   with_items:
     - cronos
     - flake8
