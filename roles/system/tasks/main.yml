@@ -76,7 +76,6 @@
     - google-cloud-sdk
     - keepassx
     - seil
-    - slack
     - spectacle
     - spotify
     - vagrant
@@ -87,7 +86,6 @@
   become_method: sudo
   with_items:
     - cronos
-    - dropbox
     - flake8
     - grip
     - ipdb
