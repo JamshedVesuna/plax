@@ -1,7 +1,4 @@
 ---
-# TODO(jvesuna):
-# Add Seil Capslock to Escape mapping (OS X >= 10.11)
-
 - name: setup directories
   file: path={{ home }}/{{ item }} state=directory
   with_items:
@@ -75,7 +72,6 @@
     - google-chrome
     - google-cloud-sdk
     - keepassx
-    - seil
     - spectacle
     - spotify
     - vagrant
