@@ -4,6 +4,8 @@
   with_items:
     - scripts
     - tmp
+    - projects
+    - scratch
 
 - name: zsh facts
   shell: 'echo $SHELL'
@@ -15,85 +17,74 @@
   become_method: sudo
   when: default_shell.stdout.find('/bin/zsh') == -1
 
-- name: download dotfiles
-  git: repo=https://github.com/altoduo/dotfiles.git
-       dest={{ home }}/scripts/dotfiles
+
+- name: download github repositories
+  git: repo={{ item.url }}
+       dest={{ item.dest }}
        update=no
-       track_submodules=True  # Supported by ansible >1.8
+       track_submodules=True
+  vars:
+      projects: "{{ home }}/projects/"
+  with_items:
+    - { url: 'https://github.com/altoduo/dotfiles.git', dest: "{{ home }}/scripts/dotfiles" }
 
 - name: homebrew install
   homebrew:
-    name={{ item }}
-    state=present
-    update_homebrew=yes
-    upgrade_all=yes
-  with_items:
-    # Text Editors
-    - macvim
-    - neovim/neovim/neovim
-    - vim
-    # Languages
-    - go
-    - markdown
-    - pandoc
-    - python
-    - python3
-    # Networking
-    - curl
-    - iperf
-    - nmap
-    - openssl
-    - wget
-    # Version Control
-    - duplicity
-    - git
-    - rdiff-backup
-    # Cli
-    - bash
-    - tmux
-    - zsh
-    # Searching
-    - ack
-    - the_silver_searcher
-    # Misc tools
-    - awscli
-    - cask
-    - cmake
-    - ctags
-    - gpg
+    state: present
+    update_homebrew: yes
+    upgrade_all: yes
+    name:
+    #upgrade_all=yes
+  #with_items:
+      # Text Editors
+      - macvim
+      - vim
+      # Languages
+      - go
+      - markdown
+      - pandoc
+      - python
+      - python3
+      # Networking
+      - curl
+      - iperf
+      - nmap
+      - openssl
+      - wget
+      # Version Control
+      - git
+      # Virtual
+      - docker
+      - docker-machine
+      - postgresql
+      # Cli
+      - bash
+      - tmux
+      - zsh
+      # Searching
+      - ack
+      - the_silver_searcher
+      # Misc tools
+      - awscli
+      - cask
+      - cmake
+      - ctags
+      - gettext
+      - gnupg2
+      - gpg
+      - grip
 
 - name: homebrew cask install
   homebrew_cask:
     name={{ item }}
     state=present
   with_items:
-    - dropbox
     - flux
     - google-chrome
-    - google-cloud-sdk
-    - keepassx
     - spectacle
     - spotify
     - vagrant
     - virtualbox
-
-- name: pip install
-  pip: name={{ item }} state=latest
-  become_user: sudo
-  with_items:
-    - cronos
-    - flake8
-    - grip
-    - ipdb
-    - ipython
-    - joblib
-    - line_profiler
-    - msgpack-python
-    - neovim
-    - numpy
-    - pep8
-    - pytest
-    - virtualenv
 
 - name: dotfile sourcing
   lineinfile: dest={{ home }}/{{ item.location }} line={{ item.line }} create=true
