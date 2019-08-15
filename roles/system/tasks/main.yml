@@ -28,7 +28,7 @@
   with_items:
     - { url: 'https://github.com/altoduo/dotfiles.git', dest: "{{ home }}/scripts/dotfiles" }
 
-- name: homebrew install
+- name: homebrew
   homebrew:
     state: present
     update_homebrew: yes
@@ -74,10 +74,11 @@
       - gpg
       - grip
 
-- name: homebrew cask install
+- name: homebrew cask
   homebrew_cask:
     name={{ item }}
     state=present
+    install_options=force
   with_items:
     - google-chrome
     - spectacle
