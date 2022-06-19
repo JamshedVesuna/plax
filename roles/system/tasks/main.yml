@@ -80,11 +80,12 @@
     state=present
     install_options=force
   with_items:
+    - 1password
+    - dropbox
     - google-chrome
+    - slack
     - spectacle
     - spotify
-    - vagrant
-    - virtualbox
 
 - name: dotfile sourcing
   lineinfile: dest={{ home }}/{{ item.location }} line={{ item.line }} create=true
