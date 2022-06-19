@@ -26,7 +26,7 @@
   vars:
       projects: "{{ home }}/projects/"
   with_items:
-    - { url: 'https://github.com/altoduo/dotfiles.git', dest: "{{ home }}/scripts/dotfiles" }
+    - { url: 'git@github.com:JamshedVesuna/dotfiles.git', dest: "{{ home }}/scripts/dotfiles" }
 
 - name: homebrew
   homebrew:
