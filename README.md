@@ -7,6 +7,7 @@ Personal Ansible Playbook for OS X
 
 * Xcode
 * SSH key exchange (optional)
+  * Be sure to add your keys to your local auth agent with `ssh-add`!
 
 
 ### Raw install:
