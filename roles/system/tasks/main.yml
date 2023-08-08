@@ -5,7 +5,6 @@
     - scripts
     - tmp
     - projects
-    - scratch
 
 - name: zsh facts
   shell: 'echo $SHELL'
