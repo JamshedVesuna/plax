@@ -66,6 +66,7 @@
       - gnupg2
       - gpg
       - grip
+      - terraform
 
 - name: homebrew cask
   homebrew_cask:
