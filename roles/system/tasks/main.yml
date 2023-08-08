@@ -64,6 +64,7 @@
       - ctags
       - gettext
       - gnupg2
+      - google-cloud-sdk
       - gpg
       - grip
       - terraform
