@@ -1,10 +1,13 @@
 ---
+
+- name: import the `base` role
+  import_role:
+    name: base
+
 - name: setup directories
   file: path={{ home }}/{{ item }} state=directory
   with_items:
-    - scripts
     - tmp
-    - projects
 
 - name: zsh facts
   shell: 'echo $SHELL'
@@ -35,40 +38,8 @@
     name:
       # Text Editors
       - macvim
-      - vim
-      # Languages
-      - go
-      - markdown
-      - python
-      - python3
-      # Networking
-      - curl
-      - nmap
-      - openssl
-      - wget
-      # Version Control
-      - git
-      # Virtual
-      - docker
-      - docker-machine
-      # Cli
-      - bash
-      - tmux
-      - zsh
       # Searching
-      - ack
       - the_silver_searcher
-      # Misc tools
-      - cask
-      - cmake
-      - ctags
-      - gcc
-      - gettext
-      - gnupg2
-      - google-cloud-sdk
-      - gpg
-      - grip
-      - terraform
 
 - name: homebrew cask
   homebrew_cask:
@@ -76,10 +47,7 @@
     state=present
     accept_external_apps=true
   with_items:
-    - 1password
-    - dropbox
-    - google-chrome
-    - slack
+    - cursor
     - spectacle
     - spotify
 

@@ -1,0 +1,57 @@
+---
+- name: setup directories
+  file: path={{ home }}/{{ item }} state=directory
+  with_items:
+    - scripts
+    - projects
+
+- name: homebrew
+  homebrew:
+    state: present
+    update_homebrew: yes
+    upgrade_all: yes
+    name:
+      # Text Editors
+      - vim
+      # Languages
+      - go
+      - markdown
+      - npm
+      - python
+      # Networking
+      - curl
+      - nmap
+      - openssl
+      - wget
+      # Version Control
+      - git
+      # Virtual
+      - docker
+      - docker-machine
+      # Cli
+      - bash
+      - tmux
+      - zsh
+      # Searching
+      - ack
+      # Misc tools
+      - cask
+      - cmake
+      - ctags
+      - gcc
+      - gettext
+      - gnupg2
+      - gpg
+      - terraform
+
+- name: homebrew cask
+  homebrew_cask:
+    name={{ item }}
+    state=present
+    accept_external_apps=true
+  with_items:
+    - 1password
+    - dropbox
+    - google-chrome
+    - google-cloud-sdk
+    - slack
