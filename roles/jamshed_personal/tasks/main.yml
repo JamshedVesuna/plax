@@ -50,6 +50,7 @@
     - cursor
     - spectacle
     - spotify
+    - visual-studio-code
 
 - name: dotfile sourcing
   lineinfile: dest={{ home }}/{{ item.location }} line={{ item.line }} create=true
