@@ -3,5 +3,6 @@
   connection: local
   roles:
     - jamshed_personal
+    - increase
   vars:
     home: "/Users/{{ ansible_user_id }}"

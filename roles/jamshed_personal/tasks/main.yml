@@ -7,6 +7,8 @@
 - name: setup directories
   file: path={{ home }}/{{ item }} state=directory
   with_items:
+    - projects
+    - scripts
     - tmp
 
 - name: zsh facts
@@ -28,7 +30,7 @@
   vars:
       projects: "{{ home }}/projects/"
   with_items:
-    - { url: 'git@github.com:JamshedVesuna/dotfiles.git', dest: "{{ home }}/scripts/dotfiles" }
+    - { url: 'git@github.com:JamshedVesuna/dotfiles.git', dest: '{{ home }}/scripts/dotfiles' }
 
 - name: homebrew
   homebrew:

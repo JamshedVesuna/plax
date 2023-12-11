@@ -1,9 +1,13 @@
 ---
-- name: setup directories
-  file: path={{ home }}/{{ item }} state=directory
-  with_items:
-    - scripts
-    - projects
+- name: check if FileVault is enabled
+  shell: fdesetup status
+  register: filevault_status
+  changed_when: false
+
+- name: pause and prompt user if FileVault is not enabled
+  pause:
+    prompt: "FileVault is not enabled. Please enable it manually at System Preferences => Security & Privacy => FileVault and then press enter to continue"
+  when: "'FileVault is Off' in filevault_status.stdout"
 
 - name: homebrew
   homebrew:
@@ -55,3 +59,4 @@
     - google-chrome
     - google-cloud-sdk
     - slack
+    - zoom
