@@ -46,6 +46,7 @@
       - gettext
       - gnupg2
       - gpg
+      - jq
       - terraform
 
 - name: homebrew cask
@@ -58,5 +59,6 @@
     - dropbox
     - google-chrome
     - google-cloud-sdk
+    - google-drive
     - slack
     - zoom
